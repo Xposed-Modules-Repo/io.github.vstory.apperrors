@@ -2,7 +2,7 @@
 
 > **🌐 [English](README.en.md) · 简体中文**
 
-拦截应用崩溃并以**系统通知**方式捕获展示、记录异常历史、支持按应用配置展示方式的 Android 崩溃跟踪模块（LSPosed ）。
+拦截应用崩溃并以**系统通知**方式捕获展示、记录异常历史、支持按应用配置展示方式的 Android 崩溃跟踪的 LSPosed 模块。
 
 基于上游 [KitsunePie/AppErrorsTracking](https://github.com/KitsunePie/AppErrorsTracking)，用 **libxposed API 102** 纯 Java 重构（原版 Kotlin + YukiHookAPI）。
 
@@ -64,19 +64,3 @@
 ## ⚠️ 边界与注意事项
 
 - **作用域**：模块只在 **system_server** 进程运行；首次启用需在 LSPosed 勾选 `system_server` 并**重启系统**（或重启 `system_server`）。后续升级可用 LSPosed「热重载」即时生效。
-- **只接管崩溃**：模块接管的是 Android `AppErrors`（应用崩溃）链路，**不含 ANR**；不注入普通应用进程。
-- **不弹窗**：展示方式是系统通知（默认）/ Toast / 静默，不弹出对话框、无悬浮窗。
-- **熔断副作用**：崩溃风暴时崩溃源应用会被自动强制停止（含已静音应用）——这是防系统死机的主动保护。
-- 包名变更见文首；模块数据 / 通知历史按包名隔离。
-
-## 安装
-
-1. 在 [LSPosed](https://github.com/LSPosed/LSPosed) 启用本模块，勾选 **system_server**
-2. 重启系统（或重启 `system_server`）生效
-3. 触发应用崩溃 → 收到崩溃通知；打开模块查看异常记录与详情
-
-> 最新版本与下载：见 [GitHub Releases](https://github.com/Vstory/AppErrorNotify/releases)。
-
-## License
-
-**GNU AGPL-3.0**（上游 Copyright (C) 2017 Fankes Studio；2026 Vstory Java 重构）。详见 [LICENSE](LICENSE)。
