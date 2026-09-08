@@ -2,7 +2,7 @@
 
 > **🌐 [English](README.en.md) · 简体中文**
 
-拦截应用崩溃并以**系统通知**方式捕获展示、记录异常历史、支持按应用配置展示方式的 Android 崩溃跟踪的 LSPosed 模块。
+拦截应用崩溃并以**系统通知**方式捕获展示、记录异常历史、支持按应用配置展示方式的 Android 崩溃跟踪模块（基于 LSPosed）。
 
 基于上游 [KitsunePie/AppErrorsTracking](https://github.com/KitsunePie/AppErrorsTracking)，用 **libxposed API 102** 纯 Java 重构（原版 Kotlin + YukiHookAPI）。
 
